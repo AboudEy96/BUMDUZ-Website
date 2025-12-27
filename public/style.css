@@ -7,19 +7,64 @@ body {
 }
 
 header {
-    padding: 60px 20px;
+    padding: 20px 20px 60px 20px;
     background: #1a1a1a;
     position: relative;
+    border-bottom: 2px solid #333;
 }
 
 .top-logo {
     position: absolute;
     top: 20px;
     left: 20px;
-    width: 60px;
+    width: 50px;
     height: auto;
     border: 1px solid #fff;
-    padding: 5px;
+    padding: 3px;
+    z-index: 10;
+}
+
+.main-nav {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 25px;
+}
+
+.main-nav a {
+    color: #bbb;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.main-nav a:hover {
+    color: #ffcc00;
+}
+
+
+.login-link {
+    border: 1px solid #ffcc00;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: #ffcc00 !important;
+}
+
+.login-link:hover {
+    background-color: #ffcc00;
+    color: #000 !important;
+}
+
+.header-content {
+    margin-top: 20px;
 }
 
 .game-container {
@@ -105,6 +150,10 @@ header {
 }
 
 @media (max-width: 768px) {
+    .main-nav ul {
+        gap: 10px;
+        font-size: 0.9rem;
+    }
     .game-container {
         flex-direction: column;
         align-items: center;
@@ -115,5 +164,7 @@ header {
     }
     .top-logo {
         width: 40px;
+        top: 10px;
+        left: 10px;
     }
 }
