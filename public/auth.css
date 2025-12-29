@@ -1,0 +1,52 @@
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 20px;
+}
+
+.auth-card {
+    background-color: #1e1e1e;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #333;
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-card h2 { color: #ffcc00; font-size: 2rem; }
+
+.input-group input {
+    width: 100%; padding: 12px;
+    margin-bottom: 15px;
+    background: #2a2a2a; border: 1px solid #444;
+    color: white; border-radius: 8px;
+}
+
+.auth-btn {
+    width: 100%; background: #ffcc00;
+    color: black; border: none; padding: 12px;
+    font-weight: bold; border-radius: 8px; cursor: pointer;
+}
+
+.auth-btn:hover { background: #e6b800; }
+
+/* تنسيق منطقة التبديل أسفل البطاقة */
+.auth-footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.auth-footer a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.auth-footer a:hover {
+    color: #e6b800;
+    text-decoration: underline;
+}

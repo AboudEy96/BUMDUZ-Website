@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <script src="auth.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUMDUZ | Sign in</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+<header>
+    <img src="images/Studio_LOGO.img" alt="Logo" class="top-logo">
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="store.html">Store</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="auth.html" class="active-link">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="auth-wrapper">
+    <div class="auth-card">
+        <div class="auth-header">
+            <h2 id="auth-title">Login</h2>
+            <p id="auth-desc">Enter your info to reach your BUMDUZ account</p>
+        </div>
+
+        <form id="auth-form" onsubmit="handleSubmit(event)">
+            <div class="input-group">
+                <label for="username">Email/Username</label>
+                <input type="text" id="username" placeholder="your mail/username.." required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="***********" required>
+            </div>
+
+            <button type="submit" class="auth-btn">Continue</button>
+        </form>
+
+        <div class="auth-footer">
+            <a href="#" id="toggle-auth" onclick="toggleForm(event)">Don't have an account? register</a>
+        </div>
+    </div>
+</main>
+</body>
+</html>
