@@ -1,0 +1,137 @@
+.shop-hero {
+    margin: 40px 0;
+}
+
+.shop-hero h1 {
+    font-size: 3rem;
+    color: #ffcc00;
+    text-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
+    letter-spacing: 2px;
+}
+
+.store-wrapper {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.coins-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    align-items: center;
+}
+
+.coin-card {
+    background: linear-gradient(145deg, #1e1e1e, #141414);
+    border: 1px solid #333;
+    border-radius: 25px;
+    padding: 40px 20px;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.coin-card:hover {
+    transform: translateY(-15px);
+    border-color: #ffcc00;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.coin-card.featured {
+    border: 2px solid #ffcc00;
+    transform: scale(1.08);
+    background: linear-gradient(145deg, #252525, #141414);
+    z-index: 2;
+}
+
+.coin-card.featured:hover {
+    transform: scale(1.1) translateY(-10px);
+    box-shadow: 0 0 25px rgba(255, 204, 0, 0.3);
+}
+
+.best-value {
+    position: absolute;
+    top: -15px;
+    background: #ffcc00;
+    color: #000;
+    padding: 5px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.coin-icon img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+}
+
+.coin-amount {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.coin-label {
+    color: #ffcc00;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.bonus-text {
+    color: #00ff88;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.coin-price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 25px;
+}
+
+.buy-now-btn {
+    width: 100%;
+    max-width: 220px;
+    padding: 15px;
+    background-color: #ffcc00;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    font-weight: 900;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 4px 0 #b38f00;
+}
+
+.buy-now-btn:hover {
+    background-color: #ffe066;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #b38f00;
+}
+
+.buy-now-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #b38f00;
+}
+
+@media (max-width: 768px) {
+    .coin-card.featured {
+        transform: scale(1);
+        margin: 20px 0;
+    }
+    .coin-card.featured:hover {
+        transform: translateY(-10px);
+    }
+}

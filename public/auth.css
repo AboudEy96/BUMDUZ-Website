@@ -32,12 +32,10 @@
 
 .auth-btn:hover { background: #e6b800; }
 
-/* تنسيق منطقة التبديل أسفل البطاقة */
 .auth-footer {
     margin-top: 20px;
     text-align: center;
 }
-
 .auth-footer a {
     color: #ffcc00;
     text-decoration: none;
@@ -45,7 +43,6 @@
     font-weight: bold;
     transition: 0.3s;
 }
-
 .auth-footer a:hover {
     color: #e6b800;
     text-decoration: underline;
