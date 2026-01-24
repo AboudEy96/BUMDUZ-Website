@@ -20,15 +20,14 @@ const initDb = async () => {
     try {
         await pool.query(`
             CREATE TABLE IF NOT EXISTS users (
-                id SERIAL PRIMARY KEY,
-                username TEXT UNIQUE NOT NULL,
-                password TEXT NOT NULL,
-                coins INTEGER DEFAULT 0
+            id SERIAL PRIMARY KEY,
+            username TEXT UNIQUE NOT NULL,
+            password TEXT NOT NULL, coins INTEGER DEFAULT 0
             );
         `);
-        console.log("✅ Database is Online");
+        console.log("Database is Online and Tables are ready");
     } catch (err) {
-        console.error("❌ DB Error:", err);
+        console.error("DB Error:", err);
     }
 };
 initDb();
@@ -52,7 +51,11 @@ app.post('/login', async (req, res) => {
             const user = result.rows[0];
             const match = await bcrypt.compare(password, user.password);
             if (match) {
-                res.json({ success: true, username: user.username, coins: user.coins });
+                res.json({
+                    success: true,
+                    username: user.username,
+                    coins: user.coins
+                });
             } else {
                 res.status(401).json({ success: false, message: "Wrong password" });
             }
@@ -61,6 +64,37 @@ app.post('/login', async (req, res) => {
         }
     } catch (err) {
         res.status(500).json({ success: false, message: "Server error" });
+    }
+});
+
+app.get('/get-coins/:username', async (req, res) => {
+    const { username } = req.params;
+    try {
+        const result = await pool.query('SELECT coins FROM users WHERE username = $1', [username]);
+        if (result.rows.length > 0) {
+            res.json({ success: true, coins: result.rows[0].coins });
+        } else {
+            res.status(404).json({ success: false, message: "User not found" });
+        }
+    } catch (err) {
+        res.status(500).json({ success: false, message: "Database error" });
+    }
+});
+
+app.post('/update-coins', async (req, res) => {
+    const { username, amount } = req.body;
+    try {
+        const result = await pool.query(
+            'UPDATE users SET coins = coins + $1 WHERE username = $2 RETURNING coins',
+            [amount, username]
+        );
+        if (result.rows.length > 0) {
+            res.json({ success: true, newBalance: result.rows[0].coins });
+        } else {
+            res.status(404).json({ success: false, message: "User not found" });
+        }
+    } catch (err) {
+        res.status(500).json({ success: false, message: "Failed to update coins" });
     }
 });
 
