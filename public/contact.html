@@ -1,10 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUMDUZ | Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css">
 </head>
 <body>
+
+<header>
+    <img src="images/Studio_LOGO.img" alt="Logo" class="top-logo">
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="store.html">Store</a></li>
+            <li><a href="contact.html" class="active-link">Contact</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="auth.html">Login</a></li>
+        </ul>
+    </nav>
+    <div class="shop-hero">
+        <h1>GET IN TOUCH</h1>
+        <p>Have a problem with your game? </p>
+    </div>
+</header>
+
+<main class="contact-wrapper">
+    <div class="contact-container">
+        <form class="contact-form" id="contactForm">
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" id="contact-user" placeholder="Example: Buket ISLER" required>
+            </div>
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="contact-email" placeholder="Email address" required>
+            </div>
+            <div class="input-group">
+                <label>Message</label>
+                <textarea id="contact-message" rows="5" placeholder="Message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">SEND MESSAGE</button>
+        </form>
+
+        <div class="contact-info">
+            <h3>Details</h3>
+            <p>support@bumduz.com</p>
+            <div class="social-links">
+                <span>Follow Us:</span>
+                <div class="icons-placeholder">Discord | Twitter | Instagram</div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    document.getElementById('contactForm').onsubmit = (e) => {
+        e.preventDefault();
+        alert("Thank you for your message");
+    };
+</script>
 
 </body>
 </html>
