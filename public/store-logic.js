@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (username) {
         document.getElementById('display-username').innerText = username;
         fetchUserCoins(username);
+    } else {
+        console.log("No user logged in found in localStorage");
     }
 });
 
@@ -20,6 +22,7 @@ async function fetchUserCoins(username) {
 
 async function buyCoins(amount) {
     const username = localStorage.getItem('user');
+
     if (!username) {
         alert("Please login first!");
         window.location.href = "auth.html";
@@ -34,11 +37,15 @@ async function buyCoins(amount) {
         });
 
         const data = await response.json();
+
         if (data.success) {
             document.getElementById('coin-balance').innerText = data.newBalance;
-            alert(`Success! You added ${amount} coins to your account.`);
+            alert(`Success! Added ${amount} coins.`);
+        } else {
+            alert("Error: " + data.message);
         }
     } catch (err) {
-        alert("Transaction failed!");
+        console.error("Fetch error:", err);
+        alert("Transaction failed! Check server connection.");
     }
 }

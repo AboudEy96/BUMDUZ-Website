@@ -22,7 +22,8 @@ const initDb = async () => {
             CREATE TABLE IF NOT EXISTS users (
             id SERIAL PRIMARY KEY,
             username TEXT UNIQUE NOT NULL,
-            password TEXT NOT NULL, coins INTEGER DEFAULT 0
+            password TEXT NOT NULL,
+            coins INTEGER DEFAULT 0
             );
         `);
         console.log("Database is Online and Tables are ready");
@@ -51,11 +52,7 @@ app.post('/login', async (req, res) => {
             const user = result.rows[0];
             const match = await bcrypt.compare(password, user.password);
             if (match) {
-                res.json({
-                    success: true,
-                    username: user.username,
-                    coins: user.coins
-                });
+                res.json({ success: true, username: user.username, coins: user.coins });
             } else {
                 res.status(401).json({ success: false, message: "Wrong password" });
             }
