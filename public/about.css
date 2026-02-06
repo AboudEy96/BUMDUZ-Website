@@ -17,7 +17,7 @@ body {
 }
 
 .about-section h2 {
-    color: #ffd700;
+    color: #700772;
     font-size: 2.5rem;
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -47,13 +47,13 @@ body {
 }
 
 .feature-card:hover {
-    border-color: #ffd700;
+    border-color: #700772;
     transform: translateY(-10px);
 }
 
 .feature-card.highlighted {
-    border: 1px solid #ffd700;
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+    border: 1px solid #700772;
+    box-shadow: 0 0 15px rgb(52, 7, 69);
 }
 
 .feature-icon {
@@ -62,7 +62,7 @@ body {
 }
 
 .feature-card h3 {
-    color: #ffd700;
+    color: #700772;
     margin-bottom: 15px;
 }
 

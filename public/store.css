@@ -4,8 +4,8 @@
 
 .shop-hero h1 {
     font-size: 3rem;
-    color: #ffcc00;
-    text-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
+    color: #700772;
+    text-shadow: 0 0 15px rgb(52, 7, 69);
     letter-spacing: 2px;
 }
 
@@ -36,12 +36,12 @@
 
 .coin-card:hover {
     transform: translateY(-15px);
-    border-color: #ffcc00;
+    border-color: #700772;
     box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
 
 .coin-card.featured {
-    border: 2px solid #ffcc00;
+    border: 2px solid #700772;
     transform: scale(1.08);
     background: linear-gradient(145deg, #252525, #141414);
     z-index: 2;
@@ -49,13 +49,13 @@
 
 .coin-card.featured:hover {
     transform: scale(1.1) translateY(-10px);
-    box-shadow: 0 0 25px rgba(255, 204, 0, 0.3);
+    box-shadow: 0 0 25px rgb(52, 7, 69);
 }
 
 .best-value {
     position: absolute;
     top: -15px;
-    background: #ffcc00;
+    background: #340745;
     color: #000;
     padding: 5px 20px;
     border-radius: 50px;
@@ -79,7 +79,7 @@
 }
 
 .coin-label {
-    color: #ffcc00;
+    color: #340745;
     font-weight: bold;
     letter-spacing: 1px;
     margin-bottom: 10px;
@@ -103,7 +103,7 @@
     width: 100%;
     max-width: 220px;
     padding: 15px;
-    background-color: #ffcc00;
+    background-color: #340745;
     color: #000;
     border: none;
     border-radius: 4px;
@@ -112,7 +112,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
-    box-shadow: 0 4px 0 #b38f00;
+    box-shadow: 0 4px 0 #340745;
 }
 
 .buy-now-btn:hover {
