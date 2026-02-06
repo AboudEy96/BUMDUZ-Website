@@ -5,7 +5,7 @@
 .shop-hero h1 {
     font-size: 3rem;
     color: #700772;
-    text-shadow: 0 0 15px rgb(52, 7, 69);
+    text-shadow: 0 0 15px rgb(127, 47, 154);
     letter-spacing: 2px;
 }
 
@@ -79,7 +79,7 @@
 }
 
 .coin-label {
-    color: #340745;
+    color: #f1ba3f;
     font-weight: bold;
     letter-spacing: 1px;
     margin-bottom: 10px;
@@ -103,7 +103,7 @@
     width: 100%;
     max-width: 220px;
     padding: 15px;
-    background-color: #340745;
+    background-color: #edd323;
     color: #000;
     border: none;
     border-radius: 4px;
