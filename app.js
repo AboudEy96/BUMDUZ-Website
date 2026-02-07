@@ -36,8 +36,8 @@ initDb();
 app.post('/register', async (req, res) => {
     const { username, password } = req.body;
     try {
-        const hashedPassword = await bcrypt.hash(password, 10);
-        await pool.query('INSERT INTO users (username, password) VALUES ($1, $2)', [username, hashedPassword]);
+       const hashedPassword = await bcrypt.hash(password, 10);
+        await pool.query('INSERT INTO users (username, password) VALUES ($1, $2)', [username, password]);
         res.json({ success: true, message: "Account created successfully!" });
     } catch (err) {
         res.status(400).json({ success: false, message: "Username already exists" });

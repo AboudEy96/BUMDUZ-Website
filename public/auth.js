@@ -20,7 +20,6 @@ function toggleForm(e) {
 
 async function handleSubmit(event) {
     event.preventDefault();
-
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     const title = document.getElementById('auth-title').innerText;
