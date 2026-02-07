@@ -15,7 +15,7 @@
     max-width: 400px;
 }
 
-.auth-card h2 { color: #ffcc00; font-size: 2rem; }
+.auth-card h2 { color: #700772; font-size: 2rem; }
 
 .input-group input {
     width: 100%; padding: 12px;
@@ -25,25 +25,25 @@
 }
 
 .auth-btn {
-    width: 100%; background: #ffcc00;
+    width: 100%; background: #700772;
     color: black; border: none; padding: 12px;
     font-weight: bold; border-radius: 8px; cursor: pointer;
 }
 
-.auth-btn:hover { background: #e6b800; }
+.auth-btn:hover { background: #340745; }
 
 .auth-footer {
     margin-top: 20px;
     text-align: center;
 }
 .auth-footer a {
-    color: #ffcc00;
+    color: #700772;
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: bold;
     transition: 0.3s;
 }
 .auth-footer a:hover {
-    color: #e6b800;
+    color: #340745;
     text-decoration: underline;
 }

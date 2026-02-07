@@ -47,19 +47,19 @@ header {
 }
 
 .main-nav a:hover {
-    color: #ffcc00;
+    color: #700772;
 }
 
 
 .login-link {
-    border: 1px solid #ffcc00;
+    border: 1px solid #700772;
     padding: 5px 15px;
     border-radius: 5px;
-    color: #ffcc00 !important;
+    color: #700772 !important;
 }
 
 .login-link:hover {
-    background-color: #ffcc00;
+    background-color: #700772;
     color: #000 !important;
 }
 
@@ -94,7 +94,7 @@ header {
 
 .game-card:hover {
     transform: translateY(-10px);
-    border-color: #ffcc00;
+    border-color: #700772;
 }
 
 .game-card img, .coming-soon-img {
@@ -130,7 +130,7 @@ header {
 
 .download-btn {
     display: inline-block;
-    background-color: #ffcc00;
+    background-color: #700772;
     color: #000;
     padding: 10px 25px;
     text-decoration: none;
@@ -140,7 +140,7 @@ header {
 }
 
 .download-btn:hover {
-    background-color: #e6b800;
+    background-color: #700772;
 }
 
 .download-btn.disabled {
