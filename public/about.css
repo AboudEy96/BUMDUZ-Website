@@ -17,7 +17,7 @@ body {
 }
 
 .about-section h2 {
-    color: #700772;
+    color: #e74bea;
     font-size: 2.5rem;
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -52,7 +52,7 @@ body {
 }
 
 .feature-card.highlighted {
-    border: 1px solid #700772;
+    border: 1px solid #d648da;
     box-shadow: 0 0 15px rgb(52, 7, 69);
 }
 
