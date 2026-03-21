@@ -3,6 +3,7 @@ const path = require('path');
 const { Pool } = require('pg');
 const bcrypt = require('bcrypt');
 const cors = require('cors');
+const {compare} = require("bcrypt");
 
 const app = express();
 
@@ -36,8 +37,8 @@ initDb();
 app.post('/register', async (req, res) => {
     const { username, password } = req.body;
     try {
-        const hashedPassword = await bcrypt.hash(password, 10);
-        await pool.query('INSERT INTO users (username, password) VALUES ($1, $2)', [username, hashedPassword]);
+       const hashedPassword = await bcrypt.hash(password, 10);
+        await pool.query('INSERT INTO users (username, password) VALUES ($1, $2)', [username, password]);
         res.json({ success: true, message: "Account created successfully!" });
     } catch (err) {
         res.status(400).json({ success: false, message: "Username already exists" });
@@ -50,7 +51,7 @@ app.post('/login', async (req, res) => {
         const result = await pool.query('SELECT * FROM users WHERE username = $1', [username]);
         if (result.rows.length > 0) {
             const user = result.rows[0];
-            const match = await bcrypt.compare(password, user.password);
+            const match = compare(password, user.password);
             if (match) {
                 res.json({ success: true, username: user.username, coins: user.coins });
             } else {
