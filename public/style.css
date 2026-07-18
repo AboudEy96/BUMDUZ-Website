@@ -1,100 +1,203 @@
+/* =========================================================
+   BUMDUZ — Esports UI system
+   Palette: void black / panel charcoal / electric violet / ember gold / hot magenta
+   Display type: Rajdhani (condensed, angular) — Body: Barlow
+   Signature element: notched "battle-plate" cards + diagonal shard dividers
+   ========================================================= */
+
+:root {
+    --void: #0a0a0d;
+    --panel: #16151c;
+    --panel-2: #1c1a24;
+    --line: #2b2733;
+    --violet: #9b3ff0;
+    --violet-deep: #5c1f96;
+    --violet-glow: rgba(155, 63, 240, 0.45);
+    --gold: #f0c419;
+    --gold-deep: #b38f00;
+    --ember: #ff3860;
+    --text: #f3f1f7;
+    --muted: #9a93ab;
+    --font-display: 'Rajdhani', 'Segoe UI', sans-serif;
+    --font-body: 'Barlow', 'Segoe UI', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212;
-    color: white;
+    font-family: var(--font-body);
+    background-color: var(--void);
+    background-image:
+        linear-gradient(180deg, rgba(155,63,240,0.06), transparent 300px),
+        repeating-linear-gradient(115deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 90px);
+    color: var(--text);
     margin: 0;
     text-align: center;
 }
 
+::selection { background: var(--violet); color: #000; }
+
+/* ---------- Header / Nav ---------- */
+
 header {
-    padding: 20px 20px 60px 20px;
-    background: #1a1a1a;
+    padding: 18px 20px 90px 20px;
+    background: linear-gradient(180deg, #131118 0%, #0e0d12 100%);
     position: relative;
-    border-bottom: 2px solid #333;
+    border-bottom: 2px solid var(--violet-deep);
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 34px), 0 100%);
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('images/hero-shards.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.35;
+    pointer-events: none;
+    mix-blend-mode: screen;
 }
 
 .top-logo {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 50px;
+    top: 18px;
+    left: 22px;
+    width: 52px;
     height: auto;
-    border: 1px solid #fff;
+    border: 2px solid var(--gold);
+    border-radius: 4px;
     padding: 3px;
+    background: #000;
     z-index: 10;
+    box-shadow: 0 0 18px var(--violet-glow);
 }
 
 .main-nav {
-    margin-bottom: 30px;
+    margin-bottom: 34px;
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 2;
 }
 
 .main-nav ul {
     list-style: none;
-    padding: 0;
+    padding: 8px 26px;
     margin: 0;
     display: flex;
-    gap: 25px;
+    gap: 30px;
+    background: rgba(10, 9, 13, 0.55);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    backdrop-filter: blur(6px);
 }
 
 .main-nav a {
-    color: #bbb;
+    color: var(--muted);
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: 0.3s;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: 0.25s;
+    position: relative;
+    padding: 4px 2px;
 }
 
-.main-nav a:hover {
-    color: #700772;
+.main-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -4px;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
 }
 
+.main-nav a:hover { color: var(--text); }
+.main-nav a:hover::after { transform: scaleX(1); }
+
+.main-nav a.active-link { color: var(--gold); }
+.main-nav a.active-link::after { transform: scaleX(1); }
 
 .login-link {
-    border: 1px solid #700772;
+    border: 1px solid var(--violet);
     padding: 5px 15px;
-    border-radius: 5px;
-    color: #700772 !important;
+    border-radius: 3px;
+    color: var(--violet) !important;
 }
 
 .login-link:hover {
-    background-color: #700772;
+    background-color: var(--violet);
     color: #000 !important;
 }
 
-.header-content {
-    margin-top: 20px;
+.header-content { margin-top: 20px; }
+
+.shop-hero {
+    position: relative;
+    z-index: 2;
+    margin: 20px 0 0;
 }
+
+.shop-hero h1 {
+    font-family: var(--font-display);
+    font-size: 3.2rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin: 0;
+    color: var(--text);
+    text-shadow: 0 0 24px var(--violet-glow), 0 0 2px #000;
+}
+
+.shop-hero h1::after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 4px;
+    margin: 14px auto 0;
+    background: linear-gradient(90deg, var(--gold), var(--violet));
+}
+
+.shop-hero p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin-top: 14px;
+    letter-spacing: 0.5px;
+}
+
+/* ---------- Game cards (home) ---------- */
 
 .game-container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 20px;
-    padding: 50px 5%;
+    gap: 24px;
+    padding: 60px 5%;
     flex-wrap: wrap;
 }
 
 .game-card {
-    background-color: #1e1e1e;
-    border-radius: 15px;
+    background-color: var(--panel);
+    clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
     overflow: hidden;
-    transition: transform 0.3s ease, border 0.3s ease;
-    border: 1px solid #333;
+    transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--line);
     flex: 1;
     min-width: 280px;
     max-width: 350px;
 }
 
-.main-card {
-    border-color: #444;
-    max-width: 450px;
-}
+.main-card { border-color: var(--violet-deep); max-width: 450px; }
 
 .game-card:hover {
     transform: translateY(-10px);
-    border-color: #700772;
+    border-color: var(--violet);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 24px var(--violet-glow);
 }
 
 .game-card img, .coming-soon-img {
@@ -104,67 +207,81 @@ header {
 }
 
 .coming-soon-img {
-    background-color: #2a2a2a;
+    background-color: var(--panel-2);
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: var(--font-display);
     font-size: 80px;
     font-weight: bold;
-    color: #444;
+    color: var(--line);
 }
 
-.info {
-    padding: 20px;
-}
+.info { padding: 22px; }
 
 .info h2 {
     margin: 10px 0;
-    font-size: 1.5rem;
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .info p {
-    font-size: 0.9rem;
-    color: #bbb;
+    font-size: 0.92rem;
+    color: var(--muted);
     min-height: 50px;
 }
 
 .download-btn {
     display: inline-block;
-    background-color: #700772;
+    background-color: var(--gold);
     color: #000;
-    padding: 10px 25px;
+    font-family: var(--font-display);
+    padding: 10px 28px;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 3px;
     margin-top: 15px;
-    font-weight: bold;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 0 var(--gold-deep);
+    transition: 0.15s;
 }
 
 .download-btn:hover {
-    background-color: #700772;
+    background-color: #ffe066;
+    transform: translateY(-2px);
 }
 
 .download-btn.disabled {
-    background-color: #333;
+    background-color: var(--line);
     color: #777;
+    box-shadow: none;
     pointer-events: none;
 }
 
+/* ---------- Footer ---------- */
+
+.site-footer {
+    background: #0c0b10;
+    border-top: 1px solid var(--line);
+    padding: 26px 20px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.site-footer span { color: var(--gold); }
+
+/* ---------- Responsive ---------- */
+
 @media (max-width: 768px) {
-    .main-nav ul {
-        gap: 10px;
-        font-size: 0.9rem;
-    }
-    .game-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .game-card {
-        width: 100%;
-        max-width: 400px;
-    }
-    .top-logo {
-        width: 40px;
-        top: 10px;
-        left: 10px;
-    }
+    .main-nav ul { gap: 12px; font-size: 0.9rem; padding: 8px 14px; flex-wrap: wrap; }
+    .main-nav a { font-size: 0.9rem; }
+    .shop-hero h1 { font-size: 2.1rem; letter-spacing: 2px; }
+    .game-container { flex-direction: column; align-items: center; }
+    .game-card { width: 100%; max-width: 400px; }
+    .top-logo { width: 42px; top: 10px; left: 10px; }
+    header { padding-bottom: 60px; }
 }
